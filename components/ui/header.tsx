@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Logo from "./logo";
+import { MobileNavbar } from "../mobile-navbar";
 
 export default function Header() {
   return (
@@ -13,8 +14,11 @@ export default function Header() {
             <Logo />
           </div>
 
+          {/* Mobile Navbar */}
+          <MobileNavbar />
+
           {/* Desktop sign in links */}
-          <ul className="flex flex-1 justify-end items-center gap-5">
+          <ul className="hidden md:flex flex-1 justify-end items-center gap-5">
             <li>
               <Link
                 href="#services"
