@@ -38,8 +38,6 @@ const nacelle = localFont({
   display: "swap",
 });
 
-
-
 export const metadata = {
   title: "Seamless Technology",
   description: "Seamless Technology and Consultancy PLC",
@@ -57,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
