@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function HeroHome() {
   return (
     <section>
-      <div className="mx-auto px-4 sm:px-6 max-w-6xl">
+      <div className="flex justify-center items-center mx-auto px-4 sm:px-6 max-w-6xl h-screen">
         {/* Hero content */}
         <div className="flex md:flex-row flex-col gap-3 py-12 md:py-20">
           {/* Section header */}
@@ -22,38 +22,44 @@ export default function HeroHome() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Our landing page template works on all devices, so you only have
-                to set it up once, and get beautiful results forever.
+                Innovating the future through seamless, secure, and intelligent
+                digital solutions that transform the way you work and connect.
               </p>
               <div className="sm:flex sm:justify-center mx-auto sm:max-w-none max-w-xs">
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
                     className="group bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-t from-indigo-600 to-indigo-500 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] mb-4 sm:mb-0 w-full sm:w-auto text-white btn"
-                    href="#0"
+                    href="#contact-us"
                   >
                     <span className="inline-flex relative items-center">
-                      Start Building
+                      Contact Us
                       <span className="ml-1 text-white/50 tracking-normal transition-transform group-hover:translate-x-0.5">
                         -&gt;
                       </span>
                     </span>
                   </a>
                 </div>
-                <div data-aos="fade-up" data-aos-delay={600}>
+                {/* <div data-aos="fade-up" data-aos-delay={600}>
                   <a
                     className="before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 sm:ml-4 before:border before:border-transparent before:rounded-[inherit] w-full sm:w-auto text-gray-300 before:pointer-events-none btn before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
                     href="#0"
                   >
                     Schedule Demo
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
 
           {/* Illustration */}
-          <div className="flex justify-center items-center">
-          <Image src={digitalHealth} alt="Digital health Illustration" className="" width={500} height={1000} />
+          <div className="hidden md:flex justify-center items-center">
+            <Image
+              src={digitalHealth}
+              alt="Digital health Illustration"
+              className=""
+              width={800}
+              height={1600}
+            />
           </div>
         </div>
       </div>
