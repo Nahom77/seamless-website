@@ -14,11 +14,11 @@ export default function Header() {
           </div>
 
           {/* Desktop sign in links */}
-          <ul className="flex flex-1 justify-end items-center gap-3">
+          <ul className="flex flex-1 justify-end items-center gap-5">
             <li>
               <Link
                 href="#services"
-                className="before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] py-[5px] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                className="before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] py-[5px] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
               >
                 Services
               </Link>
@@ -26,7 +26,7 @@ export default function Header() {
             <li>
               <Link
                 href="#services"
-                className="before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] py-[5px] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                className="before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] py-[5px] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
               >
              Blog
               </Link>
