@@ -2,6 +2,7 @@ import "./css/style.css";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/sonner";
 
 import Header from "@/components/ui/header";
 
@@ -62,6 +63,7 @@ export default function RootLayout({
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           {children}
+          <Toaster />
         </div>
       </body>
     </html>

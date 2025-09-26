@@ -6,9 +6,9 @@ import { MobileNavbar } from "../mobile-navbar";
 
 export default function Header() {
   return (
-    <header className="top-2 z-30 sticky mt-2 md:mt-5 w-full">
-      <div className="mx-auto px-4 sm:px-6 max-w-6xl">
-        <div className="after:-z-10 before:absolute after:absolute relative before:inset-0 after:inset-0 flex justify-between items-center gap-3 bg-gray-900/90 after:backdrop-blur-xs px-3 before:border before:border-transparent rounded-2xl before:rounded-[inherit] h-14 before:pointer-events-none before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
+    <header className="top-0 z-30 sticky w-full">
+      <div className="mx-auto w-full">
+        <div className="after:-z-10 before:absolute after:absolute relative before:inset-0 after:inset-0 flex justify-between items-center gap-3 bg-gray-900/90 after:backdrop-blur-xs px-3 py-8 before:border before:border-transparent before:rounded-[inherit] h-14 before:pointer-events-none before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
           {/* Site branding */}
           <div className="flex flex-1 items-center">
             <Logo />
@@ -29,7 +29,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="#services"
+                href="#blog"
                 className="before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] py-[5px] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
               >
                 Blog
@@ -37,7 +37,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/signin"
+                href="#about-us"
                 className="before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] py-[5px] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
               >
                 About Us
@@ -45,7 +45,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/signin"
+                href="#contact-us"
                 className="before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] py-[5px] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
               >
                 Contact Us

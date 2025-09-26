@@ -1,13 +1,13 @@
 import Image from "next/image";
-import digitalHealth from "@/public/images/digital-health.jpg";
-import healthConsultancy from "@/public/images/health-consultancy.jpg";
-import dataAnalytics from "@/public/images/data-analytics.jpg";
+import digitalHealth from "@/public/images/health-app_11878817.png";
+import healthConsultancy from "@/public/images/telehealth_17323092.png";
+import dataAnalytics from "@/public/images/statistic_7581618.png";
 import Spotlight from "@/components/spotlight";
 
 export default function Services() {
   return (
-    <section id="services">
-      <div className="mx-auto px-4 sm:px-6 max-w-6xl">
+    <section id="services" className="">
+      <div className="mx-auto mt-15 px-4 sm:px-6 max-w-6xl">
         <div className="pb-12 md:pb-20">
           {/* Section header */}
           <div className="mx-auto pb-12 md:pb-20 max-w-3xl text-center">
@@ -26,13 +26,15 @@ export default function Services() {
             <div className="group/card before:-top-40 after:-top-48 before:-left-40 after:-left-48 before:z-10 after:z-30 before:absolute after:absolute relative bg-gray-800 before:bg-indigo-500/80 after:bg-indigo-500 before:opacity-0 after:opacity-0 hover:after:opacity-20 group-hover:before:opacity-100 before:blur-3xl after:blur-3xl p-px rounded-2xl before:rounded-full after:rounded-full before:w-80 after:w-64 h-full before:h-80 after:h-64 overflow-hidden before:transition-opacity after:transition-opacity before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] before:duration-500 after:duration-500 before:pointer-events-none after:pointer-events-none">
               <div className="z-20 after:absolute relative after:inset-0 bg-gray-950 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50 rounded-[inherit] h-full overflow-hidden">
                 {/* Image */}
-                <Image
-                  className="inline-flex w-full"
-                  src={digitalHealth}
-                  width={350}
-                  height={288}
-                  alt="Digital Health Image"
-                />
+                <div className="flex justify-center items-center px-5 pt-2 w-full h-[100px]">
+                  <Image
+                    className="inline-flex"
+                    src={digitalHealth}
+                    width={80}
+                    height={80}
+                    alt="Digital Health Image"
+                  />
+                </div>
                 {/* Content */}
                 <div className="p-6">
                   <div className="mb-3">
@@ -59,13 +61,16 @@ export default function Services() {
             <div className="group/card before:-top-40 after:-top-48 before:-left-40 after:-left-48 before:z-10 after:z-30 before:absolute after:absolute relative bg-gray-800 before:bg-indigo-500/80 after:bg-indigo-500 before:opacity-0 after:opacity-0 hover:after:opacity-20 group-hover:before:opacity-100 before:blur-3xl after:blur-3xl p-px rounded-2xl before:rounded-full after:rounded-full before:w-80 after:w-64 h-full before:h-80 after:h-64 overflow-hidden before:transition-opacity after:transition-opacity before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] before:duration-500 after:duration-500 before:pointer-events-none after:pointer-events-none">
               <div className="z-20 after:absolute relative after:inset-0 bg-gray-950 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50 rounded-[inherit] h-full overflow-hidden">
                 {/* Image */}
-                <Image
-                  className="inline-flex w-full"
-                  src={healthConsultancy}
-                  width={350}
-                  height={288}
-                  alt="doctors"
-                />
+                <div className="flex justify-center items-center px-5 pt-2 w-full h-[100px]">
+                  <Image
+                    className="inline-flex"
+                    src={healthConsultancy}
+                    width={80}
+                    height={80}
+                    alt="tele-health image"
+                  />
+                </div>
+
                 {/* Content */}
                 <div className="p-6">
                   <div className="mb-3">
@@ -90,13 +95,16 @@ export default function Services() {
             <div className="group/card before:-top-40 after:-top-48 before:-left-40 after:-left-48 before:z-10 after:z-30 before:absolute after:absolute relative bg-gray-800 before:bg-indigo-500/80 after:bg-indigo-500 before:opacity-0 after:opacity-0 hover:after:opacity-20 group-hover:before:opacity-100 before:blur-3xl after:blur-3xl p-px rounded-2xl before:rounded-full after:rounded-full before:w-80 after:w-64 h-full before:h-80 after:h-64 overflow-hidden before:transition-opacity after:transition-opacity before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] before:duration-500 after:duration-500 before:pointer-events-none after:pointer-events-none">
               <div className="z-20 after:absolute relative after:inset-0 bg-gray-950 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50 rounded-[inherit] h-full overflow-hidden">
                 {/* Image */}
-                <Image
-                  className="inline-flex w-full"
-                  src={dataAnalytics}
-                  width={350}
-                  height={288}
-                  alt="tablet-with-charts"
-                />
+                <div className="flex justify-center items-center px-5 pt-2 w-full h-[100px]">
+                  <Image
+                    className="inline-flex"
+                    src={dataAnalytics}
+                    width={80}
+                    height={80}
+                    alt="Analytics image"
+                  />
+                </div>
+
                 {/* Content */}
                 <div className="p-6">
                   <div className="mb-3">

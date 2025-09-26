@@ -14,7 +14,7 @@ export default function HeroHome() {
               className="bg-[length:200%_auto] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-clip-text pb-5 font-nacelle font-semibold text-transparent text-4xl md:text-5xl animate-[gradient_6s_linear_infinite]"
               data-aos="fade-up"
             >
-              Seamless Digital Experiences with Precision
+              Seamless Experience
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
@@ -22,17 +22,17 @@ export default function HeroHome() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Innovating the future through seamless, secure, and intelligent
-                digital solutions that transform the way you work and connect.
+                Co-building reliable, scalable health systems and digital health
+                payments.
               </p>
               <div className="sm:flex sm:justify-center mx-auto sm:max-w-none max-w-xs">
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
-                    className="group bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-t from-indigo-600 to-indigo-500 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] mb-4 sm:mb-0 w-full sm:w-auto text-white btn"
+                    className="group bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-t from-[#1b2d45] to-[#2e4056] shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] mb-4 sm:mb-0 w-full sm:w-auto text-white btn"
                     href="#contact-us"
                   >
                     <span className="inline-flex relative items-center">
-                      Contact Us
+                      Get in touch
                       <span className="ml-1 text-white/50 tracking-normal transition-transform group-hover:translate-x-0.5">
                         -&gt;
                       </span>
@@ -51,7 +51,7 @@ export default function HeroHome() {
             </div>
           </div>
 
-          {/* Illustration */}
+          {/* Illustration
           <div className="hidden md:flex justify-center items-center">
             <Image
               src={digitalHealth}
@@ -60,7 +60,7 @@ export default function HeroHome() {
               width={800}
               height={1600}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
