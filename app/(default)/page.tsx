@@ -10,6 +10,7 @@ import OurBlogs from "@/components/our-blog";
 import Testimonials from "@/components/testimonials";
 import Cta from "@/components/cta";
 import Contact from "@/components/contact-us";
+import AboutUs from "@/components/about-us";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <Services />
       <OurBlogs />
+      <AboutUs />
       {/* <Testimonials /> */}
       <Contact />
       <Cta />

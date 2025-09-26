@@ -1,13 +1,13 @@
 import Image from "next/image";
-import digitalHealth from "@/public/images/health-app_11878817.png";
-import healthConsultancy from "@/public/images/telehealth_17323092.png";
+import digitalHealth from "@/public/images/heart-rate.png";
+import healthConsultancy from "@/public/images/telehealth.png";
 import dataAnalytics from "@/public/images/statistic_7581618.png";
 import Spotlight from "@/components/spotlight";
 
 export default function Services() {
   return (
     <section id="services" className="">
-      <div className="mx-auto mt-15 px-4 sm:px-6 max-w-6xl">
+      <div className="mx-auto my-27 px-4 sm:px-6 max-w-6xl">
         <div className="pb-12 md:pb-20">
           {/* Section header */}
           <div className="mx-auto pb-12 md:pb-20 max-w-3xl text-center">

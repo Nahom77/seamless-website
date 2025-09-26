@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MessageSquare, Send } from "lucide-react";
+import { Mail, MessageSquare, PinIcon, Send } from "lucide-react";
 import { toast } from "sonner";
 
 const Contact = () => {
@@ -62,7 +62,7 @@ const Contact = () => {
   return (
     <section id="contact-us" className="px-4 lg:px-8 py-20">
       <div className="mx-auto mt-15 px-4 sm:px-6 max-w-6xl container">
-        <div className="items-start gap-16 grid lg:grid-cols-2">
+        <div className="items-center gap-18 grid lg:grid-cols-2">
           {/* Contact Info */}
           <div className="animate-fade-in">
             <div className="inline-flex items-center bg-primary/10 mb-6 px-4 py-2 border border-primary/20 rounded-full">
@@ -71,11 +71,11 @@ const Contact = () => {
               </span>
             </div>
 
-            <h2 className="mb-6 font-bold text-3xl md:text-4xl lg:text-5xl">
-              Ready to transform your
-              <span className="bg-clip-text text-transparent hero-gradient">
+            <h2 className="mb-6 font-bold text-3xl md:text-3xl lg:text-5xl">
+              Send us a message
+              <span className="bg-clip-text bg-linear-to-r from-indigo-500 to-indigo-200 text-transparent">
                 {" "}
-                team's workflow?
+                {/* team's workflow? */}
               </span>
             </h2>
 
@@ -87,41 +87,41 @@ const Contact = () => {
             {/* Contact Methods */}
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="flex justify-center items-center bg-primary/10 border border-primary/20 rounded-xl w-12 h-12">
-                  <Mail className="w-6 h-6 text-primary" />
+                <div className="flex justify-center items-center bg-[#3c83f5]/10 border border-[#3c83f5]/20 rounded-xl w-12 h-12">
+                  <Mail className="w-6 h-6 text-[#3c83f5]" />
                 </div>
                 <div>
                   <h4 className="font-semibold">Email us directly</h4>
                   <p className="text-muted-foreground">
-                    hello@mondillaconnect.com
+                    admin@seamlessethiopia.com
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4">
-                <div className="flex justify-center items-center bg-accent/10 border border-accent/20 rounded-xl w-12 h-12">
-                  <MessageSquare className="w-6 h-6 text-accent" />
+              {/* <div className="flex items-center space-x-4">
+                <div className="flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl w-12 h-12">
+                  <MessageSquare className="w-6 h-6 text-[#818df7]" />
                 </div>
                 <div>
                   <h4 className="font-semibold">Phone number</h4>
-                  <p className="text-muted-foreground">+2519*******</p>
+                  <p className="text-muted-foreground">+251913659277</p>
+                </div>
+              </div> */}
+
+              <div className="flex items-center space-x-4">
+                <div className="flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl w-12 h-12">
+                  <PinIcon className="w-6 h-6 text-[#818df7]" />
+                </div>
+                <div>
+                  <h4 className="font-semibold">Address</h4>
+                  <p className="text-muted-foreground">
+                    Kirkos, Addis Ababa, Ethiopia
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="mt-12 pt-8 border-card-border border-t">
-              <p className="mb-4 text-muted-foreground text-sm">
-                Trusted by teams at:
-              </p>
-              <div className="flex flex-wrap gap-6 opacity-60">
-                {["Ministry of Health"].map((company) => (
-                  <div key={company} className="font-medium text-sm">
-                    {company}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <div className="mt-12 pt-8 border-card-border border-t"></div>
           </div>
 
           {/* Contact Form */}

@@ -1,7 +1,3 @@
-import digitalHealth from "@/public/images/digital-health-illustration.png";
-import ModalVideo from "@/components/modal-video";
-import Image from "next/image";
-
 export default function HeroHome() {
   return (
     <section>
