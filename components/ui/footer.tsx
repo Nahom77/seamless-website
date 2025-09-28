@@ -19,11 +19,11 @@ export default function Footer() {
             alt="Footer illustration"
           />
         </div>
-        <div className="py-8 md:py-12 justify-between gap-12 xl:gap-20 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-[repeat(4,minmax(0,140px))_1fr] sm:grid-rows-[auto_auto] md:grid-rows-[auto_auto] lg:grid-rows-1">
+        <div className="py-8 md:py-12 justify-between gap-12 xl:gap-20 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-[repeat(3,minmax(0,140px))_1fr] sm:grid-rows-[auto_auto] md:grid-rows-[auto_auto] lg:grid-rows-1">
           {/* 1st block */}
           <div className="space-y-2">
-            <h3 className="font-medium text-gray-200 text-sm">Services</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-medium text-gray-200 text-lg">Services</h3>
+            <ul className="space-y-2 text-lg">
               <li>
                 <a
                   className="text-indigo-200/65 hover:text-indigo-500 transition"
@@ -60,8 +60,8 @@ export default function Footer() {
           </div>
           {/* 2nd block */}
           <div className="space-y-2">
-            <h3 className="font-medium text-gray-200 text-sm">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-medium text-gray-200 text-lg">Quick Links</h3>
+            <ul className="space-y-2 text-lg">
               <li>
                 <a
                   className="text-indigo-200/65 hover:text-indigo-500 transition"
@@ -127,61 +127,15 @@ export default function Footer() {
             </ul>
           </div>
           {/* 4th block */}
-          <div className="space-y-2">
-            <h3 className="font-medium text-gray-200 text-sm">
-              Content Library
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-indigo-200/65 hover:text-indigo-500 transition"
-                  href="#0"
-                >
-                  Templates
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 hover:text-indigo-500 transition"
-                  href="#0"
-                >
-                  Tutorials
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 hover:text-indigo-500 transition"
-                  href="#0"
-                >
-                  Knowledge base
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 hover:text-indigo-500 transition"
-                  href="#0"
-                >
-                  Learn
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 hover:text-indigo-500 transition"
-                  href="#0"
-                >
-                  Cookie manager
-                </a>
-              </li>
-            </ul>
-          </div>
+
           {/* 5th block */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1 lg:text-right">
+          <div className="col-span-1 md:col-span-1 lg:col-span-1 lg:text-right">
             <div className="mb-3">
               <Logo />
             </div>
             <div className="text-sm">
               <p className="mb-3 text-indigo-200/65">
-                © Cruip.com
+                Seamless Experience
                 <span className="text-gray-700"> · </span>
                 <a
                   className="text-indigo-200/65 hover:text-indigo-500 transition"

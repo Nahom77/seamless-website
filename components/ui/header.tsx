@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className="w-full top-0 z-30 sticky">
       <div className="w-full mx-auto after:-z-10 before:absolute after:absolute relative before:inset-0 after:inset-0 bg-gray-900/90 after:backdrop-blur-xs before:border before:border-transparent before:rounded-[inherit] before:pointer-events-none before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-        <div className="max-w-7xl h-14 mx-auto px-3 py-12 flex justify-between items-center gap-3">
+        <div className="max-w-7xl h-[10vh] mx-auto px-3 py-12 flex justify-between items-center gap-3">
           {/* Site branding */}
           <div className="flex flex-1 items-center">
             <Logo />

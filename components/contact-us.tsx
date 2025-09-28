@@ -41,13 +41,30 @@ const Contact = () => {
       return;
     }
 
-    setIsSubmitting(true);
+    
 
-    // Simulate API call
-    setTimeout(() => {
+    // Send data to the api
+    e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      toast("Message sent successfully 🎉");
       setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-    }, 1000);
+    } else {
+      toast("Failed to send message 😢");
+    }
+  } catch (err) {
+    toast("Something went wrong. Try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
   };
 
   const handleChange = (
