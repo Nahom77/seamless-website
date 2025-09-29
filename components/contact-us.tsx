@@ -41,30 +41,28 @@ const Contact = () => {
       return;
     }
 
-    
-
     // Send data to the api
     e.preventDefault();
-  setIsSubmitting(true);
+    setIsSubmitting(true);
 
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (res.ok) {
-      toast("Message sent successfully 🎉");
-      setFormData({ name: "", email: "", message: "" });
-    } else {
-      toast("Failed to send message 😢");
+      if (res.ok) {
+        toast("Message sent successfully 🎉");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast("Failed to send message 😢");
+      }
+    } catch (err) {
+      toast("Something went wrong. Try again.");
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (err) {
-    toast("Something went wrong. Try again.");
-  } finally {
-    setIsSubmitting(false);
-  }
   };
 
   const handleChange = (
@@ -77,12 +75,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact-us" className="px-4 lg:px-8 py-20">
-      <div className="mx-auto mt-15 px-4 sm:px-6 max-w-6xl container">
-        <div className="items-center gap-18 grid lg:grid-cols-2">
+    <section id="contact-us" className="px-4 lg:px-8">
+      <div className="max-w-6xl mx-auto mt-15 px-4 sm:px-6 container">
+        <div className="py-12 md:py-20 items-center gap-18 grid lg:grid-cols-2 border-t [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1]">
           {/* Contact Info */}
           <div className="animate-fade-in">
-            <div className="inline-flex items-center bg-primary/10 mb-6 px-4 py-2 border border-primary/20 rounded-full">
+            <div className="mb-6 px-4 py-2 items-center inline-flex bg-primary/10 border border-primary/20 rounded-full">
               <span className="font-medium text-primary text-sm">
                 💬 Get In Touch
               </span>
@@ -104,7 +102,7 @@ const Contact = () => {
             {/* Contact Methods */}
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="flex justify-center items-center bg-[#3c83f5]/10 border border-[#3c83f5]/20 rounded-xl w-12 h-12">
+                <div className="w-12 h-12 flex justify-center items-center bg-[#3c83f5]/10 border border-[#3c83f5]/20 rounded-xl">
                   <Mail className="w-6 h-6 text-[#3c83f5]" />
                 </div>
                 <div>
@@ -116,7 +114,7 @@ const Contact = () => {
               </div>
 
               {/* <div className="flex items-center space-x-4">
-                <div className="flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl w-12 h-12">
+                <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
                   <MessageSquare className="w-6 h-6 text-[#818df7]" />
                 </div>
                 <div>
@@ -126,7 +124,7 @@ const Contact = () => {
               </div> */}
 
               <div className="flex items-center space-x-4">
-                <div className="flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl w-12 h-12">
+                <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
                   <PinIcon className="w-6 h-6 text-[#818df7]" />
                 </div>
                 <div>
@@ -143,7 +141,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="animate-delay-200 animate-fade-in">
-            <div className="bg-surface p-8 border border-card-border rounded-2xl">
+            <div className="p-8 bg-surface border border-card-border rounded-2xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Field */}
                 <div className="space-y-2">
@@ -206,18 +204,18 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group disabled:opacity-50 hover:shadow-lg w-full text-primary-foreground hero-gradient"
+                  className="w-full group disabled:opacity-50 hover:shadow-lg text-primary-foreground hero-gradient"
                   size="lg"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">
                       Sending...
-                      <div className="ml-2 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full w-4 h-4 animate-spin"></div>
+                      <div className="w-4 h-4 ml-2 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin"></div>
                     </span>
                   ) : (
                     <span className="flex items-center">
                       Send Message
-                      <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      <Send className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                     </span>
                   )}
                 </Button>

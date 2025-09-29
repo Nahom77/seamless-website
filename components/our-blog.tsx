@@ -1,13 +1,73 @@
 import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
-import FeaturesImage from "@/public/images/features.png";
+import panalists from "@/public/images/panalists.jpg";
+
+import {
+  Zap,
+  Shield,
+  Users,
+  BarChart3,
+  Clock,
+  MessageSquare,
+} from "lucide-react";
+
+const features = [
+  {
+    imageUrl: "/images/panalists.jpg",
+    alternateText: "panalists",
+    title: "Digital Payment",
+    description:
+      "Sept 04 marked an important milestone for digital payments in Ethiopia's healthcare sector. For years, achieving a truly paperless system has been a challenge. Cashiers carried the extra load of handling both manual receipts and digital systems, while health facilities struggled with financial reporting and claim audits. During the National Orientation on Digital Government Payments hosted by the Ministry of Finance with the support of the Ministry of Health, the National Bank, and Better Than Cash Alliance, we witnessed a turning point. The newly issued directive requiring digital payments across public institutions is a big step forward. It brings us closer to building a healthcare system that is more accessible, traceable, accountable, and efficient.",
+    color: "text-primary",
+  },
+  // {
+  //   imageUrl: Shield,
+  //   alternateText:"panalists",
+  //   title: "Enterprise-Grade Security",
+  //   description:
+  //     "Your data is protected with bank-level encryption, advanced access controls, and compliance standards.",
+  //   color: "text-accent",
+  // },
+  // {
+  //   imageUrl: Users,
+  //   alternateText:"panalists",
+  //   title: "Seamless Team Collaboration",
+  //   description:
+  //     "Invite unlimited team members, assign roles, and collaborate in real-time with integrated communication tools.",
+  //   color: "text-accent",
+  // },
+  // {
+  //   imageUrl: BarChart3,
+  //   alternateText:"panalists",
+  //   title: "Advanced Analytics",
+  //   description:
+  //     "Track project progress, team performance, and gain insights with detailed analytics and reporting.",
+  //   color: "text-primary",
+  // },
+  // {
+  //   imageUrl: Clock,
+  //   alternateText:"panalists",
+  //   title: "Smart Time Tracking",
+  //   description:
+  //     "Automatic time tracking, deadline management, and project timeline optimization for maximum productivity.",
+  //   color: "text-accent",
+  // },
+  // {
+  //   imageUrl: MessageSquare,
+  //   alternateText:"panalists",
+  //   title: "Integrated Communication",
+  //   description:
+  //     "Built-in chat, video calls, and comment system to keep all project communication in one place.",
+  //   color: "text-accent",
+  // },
+];
 
 export default function OurBlogs() {
   return (
     <section className="relative" id="blog">
       <div
-        className="top-0 left-1/2 -z-10 absolute -mt-20 -translate-x-1/2 pointer-events-none"
+        className="-mt-20 top-0 left-1/2 -z-10 absolute -translate-x-1/2 pointer-events-none"
         aria-hidden="true"
       >
         <Image
@@ -19,7 +79,7 @@ export default function OurBlogs() {
         />
       </div>
       <div
-        className="bottom-0 left-1/2 -z-10 absolute opacity-50 -mb-80 -translate-x-[120%] pointer-events-none"
+        className="-mb-80 bottom-0 left-1/2 -z-10 absolute opacity-50 -translate-x-[120%] pointer-events-none"
         aria-hidden="true"
       >
         <Image
@@ -30,162 +90,86 @@ export default function OurBlogs() {
           alt="Blurred shape"
         />
       </div>
-      <div className="mx-auto px-4 sm:px-6 max-w-6xl">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20 border-t [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1]">
           {/* Section header */}
-          <div className="mx-auto pb-4 md:pb-12 max-w-3xl text-center">
-            <div className="inline-flex items-center gap-3 before:bg-linear-to-r after:bg-linear-to-l before:from-transparent after:from-transparent before:to-indigo-200/50 after:to-indigo-200/50 pb-3 before:w-8 after:w-8 before:h-px after:h-px">
+          <div className="max-w-3xl mx-auto pb-4 md:pb-12 text-center">
+            <div className="before:w-8 after:w-8 before:h-px after:h-px pb-3 items-center gap-3 inline-flex before:bg-linear-to-r after:bg-linear-to-l before:from-transparent after:from-transparent before:to-indigo-200/50 after:to-indigo-200/50">
               <span className="inline-flex bg-clip-text bg-linear-to-r from-indigo-500 to-indigo-200 text-transparent">
                 Read about us
               </span>
             </div>
-            <h2 className="bg-[length:200%_auto] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-clip-text pb-4 font-nacelle font-semibold text-transparent text-3xl md:text-4xl animate-[gradient_6s_linear_infinite]">
+            <h2 className="pb-4 bg-[length:200%_auto] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-clip-text font-nacelle font-semibold text-transparent text-3xl md:text-4xl animate-[gradient_6s_linear_infinite]">
               Our Blogs
             </h2>
-            <p className="text-indigo-200/65 text-lg">Coming Soon</p>
           </div>
-          {/* <div className="flex justify-center pb-4 md:pb-12" data-aos="fade-up">
-            <Image
-              className="max-w-none"
-              src={FeaturesImage}
-              width={1104}
-              height={384}
-              alt="Features"
-            />
-          </div> */}
 
-          {/* Items */}
+          {/* Blogs */}
+          <div className="mx-auto container">
+            {/* Blogs Grid */}
+            <div className="flex flex-col gap-8 md:">
+              {/* grid md:grid-cols-2 lg:grid-cols-3"> */}
+              {features.map((feature, index) => {
+                return (
+                  <div
+                    key={feature.title}
+                    className="group animate-fade-in feature-card"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="space-y-4">
+                      <div className="flex md:flex-row flex-col gap-5">
+                        {/* imageUrl */}
+                        <div className="relative">
+                          <div className="w-100 flex justify-center items-center bg-[#3c83f5]/10 group-hover:scale-101 transition-transform">
+                            <Image
+                              src={feature.imageUrl}
+                              alt={feature.alternateText}
+                              height={100}
+                              width={200}
+                              className="w-full object-cover border border-[#3c83f5]/20 rounded-xl"
+                            />
+                          </div>
+                        </div>
 
-          {/* <div className="gap-12 md:gap-x-14 md:gap-y-16 grid sm:grid-cols-2 lg:grid-cols-3 mx-auto sm:max-w-none max-w-sm">
-            <article>
-              <svg
-                className="fill-indigo-500 mb-3"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-              >
-                <path d="M0 0h14v17H0V0Zm2 2v13h10V2H2Z" />
-                <path
-                  fillOpacity=".48"
-                  d="m16.295 5.393 7.528 2.034-4.436 16.412L5.87 20.185l.522-1.93 11.585 3.132 3.392-12.55-5.597-1.514.522-1.93Z"
-                />
-              </svg>
-              <h3 className="mb-1 font-nacelle font-semibold text-[1rem] text-gray-200">
-                Project Milestones
-              </h3>
-              <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
-              </p>
-            </article>
-            <article>
-              <svg
-                className="fill-indigo-500 mb-3"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-              >
-                <path fillOpacity=".48" d="M7 8V0H5v8h2Zm12 16v-4h-2v4h2Z" />
-                <path d="M19 6H0v2h17v8H7v-6H5v8h19v-2h-5V6Z" />
-              </svg>
-              <h3 className="mb-1 font-nacelle font-semibold text-[1rem] text-gray-200">
-                Team Views
-              </h3>
-              <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
-              </p>
-            </article>
-            <article>
-              <svg
-                className="fill-indigo-500 mb-3"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-              >
-                <path d="M23.414 6 18 .586 16.586 2l3 3H7a6 6 0 0 0-6 6h2a4 4 0 0 1 4-4h12.586l-3 3L18 11.414 23.414 6Z" />
-                <path
-                  fillOpacity=".48"
-                  d="M13.01 12.508a2.5 2.5 0 0 0-3.502.482L1.797 23.16.203 21.952l7.71-10.17a4.5 4.5 0 1 1 7.172 5.437l-4.84 6.386-1.594-1.209 4.841-6.385a2.5 2.5 0 0 0-.482-3.503Z"
-                />
-              </svg>
-              <h3 className="mb-1 font-nacelle font-semibold text-[1rem] text-gray-200">
-                Advanced Search
-              </h3>
-              <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
-              </p>
-            </article>
-            <article>
-              <svg
-                className="fill-indigo-500 mb-3"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-              >
-                <path
-                  fillOpacity=".48"
-                  d="m3.031 9.05-.593-.805 1.609-1.187.594.804a6.966 6.966 0 0 1 0 8.276l-.594.805-1.61-1.188.594-.805a4.966 4.966 0 0 0 0-5.9Z"
-                />
-                <path d="m7.456 6.676-.535-.845 1.69-1.07.534.844a11.944 11.944 0 0 1 0 12.789l-.535.845-1.69-1.071.536-.845a9.944 9.944 0 0 0 0-10.647Z" />
-                <path
-                  d="m11.888 4.35-.514-.858 1.717-1.027.513.858a16.9 16.9 0 0 1 2.4 8.677 16.9 16.9 0 0 1-2.4 8.676l-.513.859-1.717-1.028.514-.858A14.9 14.9 0 0 0 14.003 12a14.9 14.9 0 0 0-2.115-7.65Z"
-                  opacity=".48"
-                />
-                <path d="m16.321 2-.5-.866 1.733-1 .5.866A22 22 0 0 1 21 12c0 3.852-1.017 7.636-2.948 10.97l-.502.865-1.73-1.003.501-.865A19.878 19.878 0 0 0 19 12a20 20 0 0 0-2.679-10Z" />
-              </svg>
-              <h3 className="mb-1 font-nacelle font-semibold text-[1rem] text-gray-200">
-                Strategic Initiatives
-              </h3>
-              <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
-              </p>
-            </article>
-            <article>
-              <svg
-                className="fill-indigo-500 mb-3"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-              >
-                <path
-                  fillOpacity=".48"
-                  d="M12 8.8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                />
-                <path d="m7.454 2.891.891-.454L7.437.655l-.891.454a12 12 0 0 0 0 21.382l.89.454.91-1.781-.892-.455a10 10 0 0 1 0-17.818ZM17.456 1.11l-.891-.454-.909 1.782.891.454a10 10 0 0 1 0 17.819l-.89.454.908 1.781.89-.454a12 12 0 0 0 0-21.382Z" />
-              </svg>
-              <h3 className="mb-1 font-nacelle font-semibold text-[1rem] text-gray-200">
-                Flexible Workflows
-              </h3>
-              <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
-              </p>
-            </article>
-            <article>
-              <svg
-                className="fill-indigo-500 mb-3"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-              >
-                <path
-                  fillOpacity=".48"
-                  d="M19 8h5v2h-5V8Zm-4 5h9v2h-9v-2Zm9 5H11v2h13v-2Z"
-                />
-                <path d="M19.406 3.844 6.083 20.497.586 15 2 13.586l3.917 3.917L17.844 2.595l1.562 1.25Z" />
-              </svg>
-              <h3 className="mb-1 font-nacelle font-semibold text-[1rem] text-gray-200">
-                Unified Timeline
-              </h3>
-              <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
-              </p>
-            </article>
-          </div> */}
+                        {/* Content */}
+                        <div className="space-y-3">
+                          <h3 className="font-semibold text-foreground group-hover:text-primary text-xl transition-colors">
+                            {feature.title}
+                          </h3>
+                          <p className="text-[#a8b8b8] text-lg leading-relaxed">
+                            {feature.description.slice(0, 400) + "..."}
+                          </p>
+
+                          {/* Learn More Link */}
+                          <div className="pt-2">
+                            <button className="font-medium text-[#1d4ed8] hover:text-[#9ca2fb] text-sm animated-underline transition-transform group-hover:translate-x-0.5 cursor-pointer">
+                              Read more →
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Bottom CTA */}
+            {/* <div className="mt-16 text-center">
+              <div className="max-w-2xl mx-auto p-8 bg-surface border border-card-border rounded-2xl">
+                <h3 className="mb-4 font-bold text-2xl">
+                  Ready to experience the difference?
+                </h3>
+                <p className="mb-6 text-muted-foreground">
+                  Join thousands of teams who've revolutionized their workflow
+                  with Mondilla Connect.
+                </p>
+                <button className="px-8 py-3 hover:shadow-lg rounded-lg font-semibold text-primary-foreground hover:scale-105 transition-all hero-gradient">
+                  Start Your Free Trial
+                </button>
+              </div>
+            </div> */}
+          </div>
         </div>
       </div>
     </section>

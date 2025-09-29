@@ -1,7 +1,7 @@
 /* Buttons */
 .btn,
 .btn-sm {
-  @apply inline-flex justify-center items-center rounded-lg font-medium text-sm whitespace-nowrap transition-all;
+  @apply justify-center items-center inline-flex rounded-lg font-medium text-sm whitespace-nowrap transition-all;
 }
 
 .btn {
@@ -82,4 +82,17 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .glow-accent {
   box-shadow: var(--shadow-glow-accent);
+}
+
+/* Animated Underlines */
+.animated-underline {
+  @apply relative;
+}
+
+.animated-underline::after {
+  @apply w-0 h-0.5 bottom-0 left-0 absolute bg-[#1d4ed8] content-[''] transition-all duration-300;
+}
+
+.animated-underline:hover::after {
+  @apply w-full;
 }

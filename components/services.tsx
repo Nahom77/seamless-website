@@ -1,7 +1,7 @@
 import Image from "next/image";
 import digitalHealth from "@/public/images/heart-rate.png";
 import healthConsultancy from "@/public/images/telehealth.png";
-import dataAnalytics from "@/public/images/statistic_7581618.png";
+import dataAnalytics from "@/public/images/statistic.png";
 import Spotlight from "@/components/spotlight";
 
 export default function Services() {
