@@ -43,7 +43,7 @@ const AboutUs = () => {
       />
 
       <div className="max-w-6xl mx-auto mt-15 py-12 md:py-20 border-t [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1]">
-        <div className="gap-10 md:gap-8 grid grid-cols-1 md:grid-cols-3">
+        <div className="gap-10 md:gap-8 grid grid-cols-1 lg:grid-cols-3">
           {/* Left column */}
           <div className="">
             <h2 className="pb-4 bg-[length:200%_auto] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-clip-text font-nacelle font-semibold text-transparent text-3xl md:text-4xl animate-[gradient_6s_linear_infinite]">

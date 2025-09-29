@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Illustration from "@/public/images/page-illustration.svg";
+import Illustration from "@/public/images/page-illustration-deepseek.svg";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 
@@ -11,7 +11,7 @@ export default function PageIllustration({
   return (
     <>
       <div
-        className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/4"
+        className="top-0 left-1/2 -z-10 absolute -translate-x-1/4 pointer-events-none"
         aria-hidden="true"
       >
         <Image
@@ -25,7 +25,7 @@ export default function PageIllustration({
       {multiple && (
         <>
           <div
-            className="pointer-events-none absolute left-1/2 top-[400px] -z-10 -mt-20 -translate-x-full opacity-50"
+            className="-mt-20 top-[400px] left-1/2 -z-10 absolute opacity-50 -translate-x-full pointer-events-none"
             aria-hidden="true"
           >
             <Image
@@ -37,7 +37,7 @@ export default function PageIllustration({
             />
           </div>
           <div
-            className="pointer-events-none absolute left-1/2 top-[440px] -z-10 -translate-x-1/3"
+            className="top-[440px] left-1/2 -z-10 absolute -translate-x-1/3 pointer-events-none"
             aria-hidden="true"
           >
             <Image

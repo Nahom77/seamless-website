@@ -5,8 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MessageSquare, PinIcon, Send } from "lucide-react";
+import { Mail, PinIcon, Send } from "lucide-react";
 import { toast } from "sonner";
+import linkedinLogo from "@/public/images/linkedin-logo.svg";
+import facebookLogo from "@/public/images/facebook-logo.svg";
+import xLogo from "@/public/images/x-icon.svg";
+import Image from "next/image";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -86,7 +90,7 @@ const Contact = () => {
               </span>
             </div>
 
-            <h2 className="mb-6 font-bold text-3xl md:text-3xl lg:text-5xl">
+            <h2 className="pb-4 bg-[length:200%_auto] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-clip-text font-nacelle font-semibold text-transparent text-3xl md:text-4xl animate-[gradient_6s_linear_infinite]">
               Send us a message
               <span className="bg-clip-text bg-linear-to-r from-indigo-500 to-indigo-200 text-transparent">
                 {" "}
@@ -136,7 +140,27 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="mt-12 pt-8 border-card-border border-t"></div>
+            <div className="mt-12 pt-4 border-card-border border-t"></div>
+
+            <div className="flex justify-center items-center gap-6">
+              <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
+                <Image
+                  src={linkedinLogo}
+                  alt="Linkedin logo"
+                  className="w-6 h-6 text-[#818df7]"
+                />
+              </div>
+              <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
+                <Image
+                  src={facebookLogo}
+                  alt="Facebook logo"
+                  className="w-6 h-6 text-[#]"
+                />
+              </div>
+              <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
+                <Image src={xLogo} alt="X logo" className="w-6 h-6 text-[#]" />
+              </div>
+            </div>
           </div>
 
           {/* Contact Form */}

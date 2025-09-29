@@ -11,6 +11,7 @@ const features = [
     title: "Digital Payment",
     description:
       "Sept 04 marked an important milestone for digital payments in Ethiopia's healthcare sector. For years, achieving a truly paperless system has been a challenge. Cashiers carried the extra load of handling both manual receipts and digital systems, while health facilities struggled with financial reporting and claim audits. During the National Orientation on Digital Government Payments hosted by the Ministry of Finance with the support of the Ministry of Health, the National Bank, and Better Than Cash Alliance, we witnessed a turning point. The newly issued directive requiring digital payments across public institutions is a big step forward. It brings us closer to building a healthcare system that is more accessible, traceable, accountable, and efficient.",
+    date: "04, Sept 2025",
   },
 ];
 
@@ -84,10 +85,15 @@ export default function OurBlogs() {
 
                         {/* Content */}
                         <div className="space-y-3">
-                          <h3 className="font-semibold text-foreground group-hover:text-primary text-xl transition-colors">
-                            {feature.title}
-                          </h3>
-                          <p className="text-[#a8b8b8] text-sm lg:text-lg text-justify leading-relaxed">
+                          <div className="flex justify-between">
+                            <h3 className="font-semibold text-foreground group-hover:text-primary text-xl transition-colors">
+                              {feature.title}
+                            </h3>
+                            <h2 className="font-regular text-foreground text-md group-hover:text-primary transition-colors">
+                              {feature.date}
+                            </h2>
+                          </div>
+                          <p className="text-[#a8b8b8] text-md lg:text-lg text-justify leading-relaxed">
                             {feature.description.slice(0, 400) + "..."}
                           </p>
 
