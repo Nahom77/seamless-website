@@ -79,7 +79,7 @@ export default function OurBlogs() {
                             </h2>
                           </div>
                           <p className="text-[#a8b8b8] text-md lg:text-lg text-justify leading-relaxed">
-                            {blog.description.slice(0, 400) + "..."}
+                            {blog.content.slice(0, 400) + "..."}
                           </p>
 
                           {/* Learn More Link */}
