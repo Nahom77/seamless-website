@@ -135,9 +135,9 @@
   /* Gradients */
   --gradient-primary: linear-gradient(
     135deg,
-    hsl(195 100% 50%),
-    hsl(217 91% 60%),
-    hsl(234 89% 74%)
+    hsl(195, 45%, 35%),
+    hsl(195, 40%, 42%),
+    hsl(195, 35%, 50%)
   );
   --gradient-accent: linear-gradient(
     135deg,

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BlurredShape from "@/public/images/blurred-shape.svg";
+import { ArrowRight } from "lucide-react";
 
 export default function Cta() {
   return (
@@ -37,7 +38,7 @@ export default function Cta() {
                   <span className="items-center inline-flex relative">
                     Contact support
                     <span className="ml-1 text-white/50 tracking-normal transition-transform group-hover:translate-x-0.5">
-                      -&gt;
+                      {<ArrowRight className="size-4" />}
                     </span>
                   </span>
                 </a>

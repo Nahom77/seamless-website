@@ -1,3 +1,5 @@
+import { ArrowRight } from "lucide-react";
+
 export default function HeroHome() {
   return (
     <section>
@@ -30,7 +32,7 @@ export default function HeroHome() {
                     <span className="items-center inline-flex relative">
                       Get in touch
                       <span className="ml-1 text-white/50 tracking-normal transition-transform group-hover:translate-x-0.5">
-                        -&gt;
+                        {<ArrowRight className="size-4" />}
                       </span>
                     </span>
                   </a>
