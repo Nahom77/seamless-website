@@ -19,10 +19,9 @@ export default function Home() {
       <Hero />
       <Services />
       <OurBlogs />
-      <AboutUs />
+      {/* <AboutUs /> */}
       {/* <Testimonials /> */}
       <Contact />
-      <Cta />
     </>
   );
 }

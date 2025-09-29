@@ -5,6 +5,8 @@ import Logo from "./logo";
 import { MobileNavbar } from "../mobile-navbar";
 
 export default function Header() {
+  // const blogId = (await params)?.id;
+
   return (
     <header className="w-full top-0 z-30 sticky">
       <div className="w-full mx-auto after:-z-10 before:absolute after:absolute relative before:inset-0 after:inset-0 bg-gray-900/90 after:backdrop-blur-xs before:border before:border-transparent before:rounded-[inherit] before:pointer-events-none before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
@@ -13,7 +15,7 @@ export default function Header() {
           <div className="flex flex-1 items-center">
             <Logo />
           </div>
-
+          {/* {blogId && ( */}
           <div>
             {/* Mobile Navbar */}
             <MobileNavbar />
@@ -61,6 +63,7 @@ export default function Header() {
               </li>
             </ul>
           </div>
+          {/* )} */}
         </div>
       </div>
     </header>

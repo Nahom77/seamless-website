@@ -52,9 +52,10 @@ export default function OurBlogs() {
               {/* grid md:grid-cols-2 lg:grid-cols-3"> */}
               {blogs.map((blog, index) => {
                 return (
-                  <div
+                  <Link
+                    href={`/blog/${blog.id}`}
                     key={blog.id}
-                    className="p-6 group bg-slate-800/30 hover:shadow-[var(--shadow-medium),var(--shadow-glow)] border border-[#1e2127] hover:border-primary/50 rounded-xl transition-all hover:-translate-y-1 animate-fade-in duration-300"
+                    className="p-6 group bg-slate-800/30 hover:shadow-[var(--shadow-medium),var(--shadow-glow)] border border-[#1e2127] hover:border-primary/50 rounded-xl transition-all hover:-translate-y-0.5 animate-fade-in duration-300"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="space-y-4">
@@ -87,17 +88,16 @@ export default function OurBlogs() {
                           </p>
 
                           {/* Learn More Link */}
-                          <Link href={`/blog/${blog.id}`}>
-                            <div className="pt-2">
-                              <button className="font-medium text-[#1d4ed8] hover:text-[#9ca2fb] text-sm animated-underline transition-transform group-hover:translate-x-0.5 cursor-pointer">
-                                Read more →
-                              </button>
-                            </div>
-                          </Link>
+
+                          <div className="pt-2">
+                            <button className="font-medium text-[#1d4ed8] hover:text-[#9ca2fb] text-sm animated-underline transition-transform group-hover:translate-x-0.5 cursor-pointer">
+                              Read more →
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
