@@ -1,66 +1,17 @@
 import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
-import panalists from "@/public/images/panalists.jpg";
-
-import {
-  Zap,
-  Shield,
-  Users,
-  BarChart3,
-  Clock,
-  MessageSquare,
-} from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
+    id: 1,
     imageUrl: "/images/panalists.jpg",
     alternateText: "panalists",
     title: "Digital Payment",
     description:
       "Sept 04 marked an important milestone for digital payments in Ethiopia's healthcare sector. For years, achieving a truly paperless system has been a challenge. Cashiers carried the extra load of handling both manual receipts and digital systems, while health facilities struggled with financial reporting and claim audits. During the National Orientation on Digital Government Payments hosted by the Ministry of Finance with the support of the Ministry of Health, the National Bank, and Better Than Cash Alliance, we witnessed a turning point. The newly issued directive requiring digital payments across public institutions is a big step forward. It brings us closer to building a healthcare system that is more accessible, traceable, accountable, and efficient.",
-    color: "text-primary",
   },
-  // {
-  //   imageUrl: Shield,
-  //   alternateText:"panalists",
-  //   title: "Enterprise-Grade Security",
-  //   description:
-  //     "Your data is protected with bank-level encryption, advanced access controls, and compliance standards.",
-  //   color: "text-accent",
-  // },
-  // {
-  //   imageUrl: Users,
-  //   alternateText:"panalists",
-  //   title: "Seamless Team Collaboration",
-  //   description:
-  //     "Invite unlimited team members, assign roles, and collaborate in real-time with integrated communication tools.",
-  //   color: "text-accent",
-  // },
-  // {
-  //   imageUrl: BarChart3,
-  //   alternateText:"panalists",
-  //   title: "Advanced Analytics",
-  //   description:
-  //     "Track project progress, team performance, and gain insights with detailed analytics and reporting.",
-  //   color: "text-primary",
-  // },
-  // {
-  //   imageUrl: Clock,
-  //   alternateText:"panalists",
-  //   title: "Smart Time Tracking",
-  //   description:
-  //     "Automatic time tracking, deadline management, and project timeline optimization for maximum productivity.",
-  //   color: "text-accent",
-  // },
-  // {
-  //   imageUrl: MessageSquare,
-  //   alternateText:"panalists",
-  //   title: "Integrated Communication",
-  //   description:
-  //     "Built-in chat, video calls, and comment system to keep all project communication in one place.",
-  //   color: "text-accent",
-  // },
 ];
 
 export default function OurBlogs() {
@@ -113,14 +64,14 @@ export default function OurBlogs() {
                 return (
                   <div
                     key={feature.title}
-                    className="group animate-fade-in feature-card"
+                    className="p-6 group bg-slate-800/30 hover:shadow-[var(--shadow-medium),var(--shadow-glow)] border border-[#1e2127] hover:border-primary/50 rounded-xl transition-all hover:-translate-y-1 animate-fade-in duration-300"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="space-y-4">
                       <div className="flex md:flex-row flex-col gap-5">
                         {/* imageUrl */}
                         <div className="relative">
-                          <div className="w-100 flex justify-center items-center bg-[#3c83f5]/10 group-hover:scale-101 transition-transform">
+                          <div className="w-full md:w-100 flex justify-center items-center bg-[#3c83f5]/10 group-hover:scale-101 transition-transform">
                             <Image
                               src={feature.imageUrl}
                               alt={feature.alternateText}
@@ -136,16 +87,18 @@ export default function OurBlogs() {
                           <h3 className="font-semibold text-foreground group-hover:text-primary text-xl transition-colors">
                             {feature.title}
                           </h3>
-                          <p className="text-[#a8b8b8] text-lg leading-relaxed">
+                          <p className="text-[#a8b8b8] text-sm lg:text-lg text-justify leading-relaxed">
                             {feature.description.slice(0, 400) + "..."}
                           </p>
 
                           {/* Learn More Link */}
-                          <div className="pt-2">
-                            <button className="font-medium text-[#1d4ed8] hover:text-[#9ca2fb] text-sm animated-underline transition-transform group-hover:translate-x-0.5 cursor-pointer">
-                              Read more →
-                            </button>
-                          </div>
+                          <Link href={`/blog/${feature.id}`}>
+                            <div className="pt-2">
+                              <button className="font-medium text-[#1d4ed8] hover:text-[#9ca2fb] text-sm animated-underline transition-transform group-hover:translate-x-0.5 cursor-pointer">
+                                Read more →
+                              </button>
+                            </div>
+                          </Link>
                         </div>
                       </div>
                     </div>

@@ -96,3 +96,12 @@ input[type="search"]::-webkit-search-results-decoration {
 .animated-underline:hover::after {
   @apply w-full;
 }
+
+/* Blog Cards */
+.blog-card {
+  /* @apply bg-[#15171c] border border-[#1e2127] rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-medium hover:-translate-y-1; */
+}
+
+.blog-card:hover {
+  /* box-shadow: var(--shadow-medium), var(--shadow-glow); */
+}

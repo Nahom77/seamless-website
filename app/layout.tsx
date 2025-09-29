@@ -60,8 +60,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
-        <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-          <Header />
+        <div className="min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip flex flex-col">
           {children}
           <Toaster />
         </div>
