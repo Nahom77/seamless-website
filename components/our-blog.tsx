@@ -35,11 +35,6 @@ export default function OurBlogs() {
         <div className="py-12 md:py-20 border-t [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1]">
           {/* Section header */}
           <div className="max-w-3xl mx-auto pb-4 md:pb-12 text-center">
-            <div className="before:w-8 after:w-8 before:h-px after:h-px pb-3 items-center gap-3 inline-flex before:bg-linear-to-r after:bg-linear-to-l before:from-transparent after:from-transparent before:to-indigo-200/50 after:to-indigo-200/50">
-              <span className="inline-flex bg-clip-text bg-linear-to-r from-indigo-500 to-indigo-200 text-transparent">
-                Read about us
-              </span>
-            </div>
             <h2 className="pb-4 bg-[length:200%_auto] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-clip-text font-nacelle font-semibold text-transparent text-3xl md:text-4xl animate-[gradient_6s_linear_infinite]">
               Our Blogs
             </h2>

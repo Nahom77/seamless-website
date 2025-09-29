@@ -5,12 +5,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, PinIcon, Send } from "lucide-react";
+import {
+  Globe,
+  Mail,
+  MapIcon,
+  Network,
+  PinIcon,
+  Send,
+  WebhookIcon,
+} from "lucide-react";
 import { toast } from "sonner";
 import linkedinLogo from "@/public/images/linkedin-logo.svg";
 import facebookLogo from "@/public/images/facebook-logo.svg";
 import xLogo from "@/public/images/x-icon.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -143,23 +152,38 @@ const Contact = () => {
             <div className="mt-12 pt-4 border-card-border border-t"></div>
 
             <div className="flex justify-center items-center gap-6">
-              <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
-                <Image
-                  src={linkedinLogo}
-                  alt="Linkedin logo"
-                  className="w-6 h-6 text-[#818df7]"
-                />
-              </div>
-              <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
-                <Image
-                  src={facebookLogo}
-                  alt="Facebook logo"
-                  className="w-6 h-6 text-[#]"
-                />
-              </div>
-              <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
-                <Image src={xLogo} alt="X logo" className="w-6 h-6 text-[#]" />
-              </div>
+              {/* Linkedin Link */}
+              <Link
+                href={
+                  "https://www.linkedin.com/company/seamlessethiopia/posts/?feedView=all"
+                }
+              >
+                <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
+                  <Image
+                    src={linkedinLogo}
+                    alt="Linkedin logo"
+                    className="w-6 h-6 text-[#818df7]"
+                  />
+                </div>
+              </Link>
+
+              {/* Google map Link */}
+              <Link
+                href={
+                  "https://www.google.com/maps/place/Global+Hotel/@8.9934693,38.7597428,17z/data=!3m1!4b1!4m9!3m8!1s0x164b84498584ab35:0xddeb9038db0622ce!5m2!4m1!1i2!8m2!3d8.9934693!4d38.7597428!16s%2Fg%2F1pycd36tr?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D"
+                }
+              >
+                <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
+                  <MapIcon className="w-6 h-6 text-[#818df7]" />
+                </div>
+              </Link>
+
+              {/* Website Link */}
+              <Link href={"https://www.seamlessethiopia.com"}>
+                <div className="w-12 h-12 flex justify-center items-center bg-[#818df7]/10 border border-[#818df7]/20 rounded-xl">
+                  <Globe className="w-6 h-6 text-[#818df7]" />
+                </div>
+              </Link>
             </div>
           </div>
 
