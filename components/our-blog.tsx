@@ -2,18 +2,7 @@ import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 import Link from "next/link";
-
-const features = [
-  {
-    id: 1,
-    imageUrl: "/images/panalists.jpg",
-    alternateText: "panalists",
-    title: "Digital Payment",
-    description:
-      "Sept 04 marked an important milestone for digital payments in Ethiopia's healthcare sector. For years, achieving a truly paperless system has been a challenge. Cashiers carried the extra load of handling both manual receipts and digital systems, while health facilities struggled with financial reporting and claim audits. During the National Orientation on Digital Government Payments hosted by the Ministry of Finance with the support of the Ministry of Health, the National Bank, and Better Than Cash Alliance, we witnessed a turning point. The newly issued directive requiring digital payments across public institutions is a big step forward. It brings us closer to building a healthcare system that is more accessible, traceable, accountable, and efficient.",
-    date: "04, Sept 2025",
-  },
-];
+import { blogs } from "@/lib/constants";
 
 export default function OurBlogs() {
   return (
@@ -61,10 +50,10 @@ export default function OurBlogs() {
             {/* Blogs Grid */}
             <div className="flex flex-col gap-8 md:">
               {/* grid md:grid-cols-2 lg:grid-cols-3"> */}
-              {features.map((feature, index) => {
+              {blogs.map((blog, index) => {
                 return (
                   <div
-                    key={feature.title}
+                    key={blog.id}
                     className="p-6 group bg-slate-800/30 hover:shadow-[var(--shadow-medium),var(--shadow-glow)] border border-[#1e2127] hover:border-primary/50 rounded-xl transition-all hover:-translate-y-1 animate-fade-in duration-300"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
@@ -74,8 +63,8 @@ export default function OurBlogs() {
                         <div className="relative">
                           <div className="w-full md:w-100 flex justify-center items-center bg-[#3c83f5]/10 group-hover:scale-101 transition-transform">
                             <Image
-                              src={feature.imageUrl}
-                              alt={feature.alternateText}
+                              src={blog.imageUrl}
+                              alt={blog.alternateText}
                               height={100}
                               width={200}
                               className="w-full object-cover border border-[#3c83f5]/20 rounded-xl"
@@ -87,18 +76,18 @@ export default function OurBlogs() {
                         <div className="space-y-3">
                           <div className="flex justify-between">
                             <h3 className="font-semibold text-foreground group-hover:text-primary text-xl transition-colors">
-                              {feature.title}
+                              {blog.title}
                             </h3>
                             <h2 className="font-regular text-foreground text-md group-hover:text-primary transition-colors">
-                              {feature.date}
+                              {blog.date}
                             </h2>
                           </div>
                           <p className="text-[#a8b8b8] text-md lg:text-lg text-justify leading-relaxed">
-                            {feature.description.slice(0, 400) + "..."}
+                            {blog.description.slice(0, 400) + "..."}
                           </p>
 
                           {/* Learn More Link */}
-                          <Link href={`/blog/${feature.id}`}>
+                          <Link href={`/blog/${blog.id}`}>
                             <div className="pt-2">
                               <button className="font-medium text-[#1d4ed8] hover:text-[#9ca2fb] text-sm animated-underline transition-transform group-hover:translate-x-0.5 cursor-pointer">
                                 Read more →
