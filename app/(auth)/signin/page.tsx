@@ -1,11 +1,20 @@
-export const metadata = {
-  title: "Sign In - Open PRO",
-  description: "Page description",
-};
+"use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export default function SignIn() {
+  const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleSignIn(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+
+    console.log("hello");
+  }
+
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -16,8 +25,33 @@ export default function SignIn() {
               Welcome back
             </h1>
           </div>
+
+          {/* Error Display */}
+          {error && (
+            <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <svg
+                    className="w-5 h-5 text-red-400"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <p className="text-red-800 text-sm">{error}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Contact form */}
-          <form className="max-w-[400px] mx-auto">
+          <form onSubmit={handleSignIn} className="max-w-[400px] mx-auto">
             <div className="space-y-5">
               <div>
                 <label
@@ -31,6 +65,10 @@ export default function SignIn() {
                   type="email"
                   className="w-full form-input"
                   placeholder="Your email"
+                  autoComplete="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
@@ -53,11 +91,17 @@ export default function SignIn() {
                   type="password"
                   className="w-full form-input"
                   placeholder="Your password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
             <div className="mt-6 space-y-5">
-              <button className="w-full bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-t from-indigo-600 to-indigo-500 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] text-white btn">
+              <button
+                type="submit"
+                className="w-full bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-t from-indigo-600 to-indigo-500 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] text-white cursor-pointer btn"
+              >
                 Sign in
               </button>
             </div>
