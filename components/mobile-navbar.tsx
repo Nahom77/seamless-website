@@ -66,7 +66,7 @@ export function MobileNavbar() {
               </SheetClose>
             </li>
 
-            {/* <li>
+            <li>
               <SheetClose asChild>
                 <Link
                   href="/signin"
@@ -75,7 +75,7 @@ export function MobileNavbar() {
                   Sign In
                 </Link>
               </SheetClose>
-            </li> */}
+            </li>
           </ul>
         </SheetContent>
       </Sheet>

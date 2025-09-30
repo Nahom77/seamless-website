@@ -3,9 +3,12 @@
 import Link from "next/link";
 import Logo from "./logo";
 import { MobileNavbar } from "../mobile-navbar";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
-  // const blogId = (await params)?.id;
+  const path = usePathname();
+
+  const isItInBlogSection = path.startsWith("/blog");
 
   return (
     <header className="w-full top-0 z-30 sticky">
@@ -15,29 +18,31 @@ export default function Header() {
           <div className="flex flex-1 items-center">
             <Logo />
           </div>
-          {/* {blogId && ( */}
-          <div>
-            {/* Mobile Navbar */}
-            <MobileNavbar />
-            {/* Desktop sign in links */}
-            <ul className="md:flex flex-1 justify-end items-center gap-5 hidden">
-              <li>
-                <Link
-                  href="#services"
-                  className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#blog"
-                  className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
-                >
-                  Blog
-                </Link>
-              </li>
-              {/* <li>
+
+          {/* If it is in blog details page to not display navbars*/}
+          {isItInBlogSection || (
+            <div>
+              {/* Mobile Navbar */}
+              <MobileNavbar />
+              {/* Desktop sign in links */}
+              <ul className="md:flex flex-1 justify-end items-center gap-5 hidden">
+                <li>
+                  <Link
+                    href="#services"
+                    className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#blog"
+                    className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                {/* <li>
                 <Link
                   href="#about-us"
                   className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
@@ -45,25 +50,25 @@ export default function Header() {
                   About Us
                 </Link>
               </li> */}
-              <li>
-                <Link
-                  href="#contact-us"
-                  className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
-                >
-                  Contact Us
-                </Link>
-              </li>
-              {/* <li>
-                <Link
-                  href="/signin"
-                  className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
-                >
-                  Sign In
-                </Link>
-              </li> */}
-            </ul>
-          </div>
-          {/* )} */}
+                <li>
+                  <Link
+                    href="#contact-us"
+                    className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/signin"
+                    className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                  >
+                    Sign In
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </header>
