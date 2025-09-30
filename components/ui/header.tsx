@@ -1,14 +1,30 @@
-"use client";
-
 import Link from "next/link";
 import Logo from "./logo";
 import { MobileNavbar } from "../mobile-navbar";
 import { usePathname } from "next/navigation";
+import { getServerSession } from "@/lib/get-session";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 
 export default function Header() {
   const path = usePathname();
 
   const isItInBlogSection = path.startsWith("/blog");
+
+  // Checking if the user is logged
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
+
+  // Signing out
+  async function handleSignout() {
+    const { error } = await authClient.signOut();
+    if (error) {
+      toast.error(error.message || "Something went wrong.");
+    } else {
+      toast.success("Signed out successfully");
+    }
+  }
+  console.log(user);
 
   return (
     <header className="w-full top-0 z-30 sticky">
@@ -23,7 +39,7 @@ export default function Header() {
           {isItInBlogSection || (
             <div>
               {/* Mobile Navbar */}
-              <MobileNavbar />
+              <MobileNavbar user={user} handleSignout={handleSignout} />
               {/* Desktop sign in links */}
               <ul className="md:flex flex-1 justify-end items-center gap-5 hidden">
                 <li>
@@ -58,14 +74,35 @@ export default function Header() {
                     Contact Us
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/signin"
-                    className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
-                  >
-                    Sign In
-                  </Link>
-                </li>
+                {user ? (
+                  <>
+                    <li>
+                      <Link
+                        href="/create-blog"
+                        className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                      >
+                        Create Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        onClick={handleSignout}
+                        className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                      >
+                        Signout
+                      </button>
+                    </li>
+                  </>
+                ) : (
+                  <li>
+                    <Link
+                      href="/signin"
+                      className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                    >
+                      Sign In
+                    </Link>
+                  </li>
+                )}
               </ul>
             </div>
           )}
