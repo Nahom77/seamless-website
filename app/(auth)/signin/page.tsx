@@ -1,18 +1,34 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function SignIn() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   async function handleSignIn(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
 
-    console.log("hello");
+    const { error } = await authClient.signIn.email({
+      email,
+      password,
+    });
+
+    if (error) {
+      setError(error.message || "Something went wrong.");
+    } else {
+      toast.success("Signed in successfully.");
+      setEmail("");
+      setPassword("");
+      router.push("/");
+    }
   }
 
   return (
@@ -79,12 +95,6 @@ export default function SignIn() {
                   >
                     Password
                   </label>
-                  <Link
-                    className="text-gray-600 text-sm hover:underline"
-                    href="/reset-password"
-                  >
-                    Forgot?
-                  </Link>
                 </div>
                 <input
                   id="password"
