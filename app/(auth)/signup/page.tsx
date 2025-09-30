@@ -29,6 +29,9 @@ export default function SignIn() {
       setError(error.message || "Something went wrong");
     } else {
       toast.success("Signed up successfully.");
+      setName("");
+      setEmail("");
+      setPassword("");
       router.push("/");
     }
 
