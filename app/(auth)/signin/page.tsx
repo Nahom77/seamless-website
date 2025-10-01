@@ -10,11 +10,13 @@ export default function SignIn() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   async function handleSignIn(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
+    setLoading(true);
 
     const { error } = await authClient.signIn.email({
       email,
@@ -29,6 +31,8 @@ export default function SignIn() {
       setPassword("");
       router.push("/");
     }
+
+    setLoading(false);
   }
 
   return (
@@ -44,7 +48,7 @@ export default function SignIn() {
 
           {/* Error Display */}
           {error && (
-            <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div className="max-w-[400px] mx-auto mb-3 p-4 bg-red-50 border border-red-200 rounded-lg">
               <div className="flex">
                 <div className="flex-shrink-0">
                   <svg
@@ -110,7 +114,8 @@ export default function SignIn() {
             <div className="mt-6 space-y-5">
               <button
                 type="submit"
-                className="w-full bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-t from-indigo-600 to-indigo-500 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] text-white cursor-pointer btn"
+                disabled={loading}
+                className="w-full bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
               >
                 Sign in
               </button>

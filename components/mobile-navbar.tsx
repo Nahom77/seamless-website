@@ -14,9 +14,11 @@ import Link from "next/link";
 
 export function MobileNavbar({
   user,
+  loading,
   handleSignout,
 }: {
   user?: User;
+  loading: boolean;
   handleSignout: () => void;
 }) {
   return (
@@ -78,7 +80,7 @@ export function MobileNavbar({
                   <SheetClose asChild>
                     <Link
                       href="/create-blog"
-                      className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                      className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
                     >
                       Create Blog
                     </Link>
@@ -88,7 +90,8 @@ export function MobileNavbar({
                   <SheetClose asChild>
                     <button
                       onClick={handleSignout}
-                      className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                      disabled={loading}
+                      className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
                     >
                       Signout
                     </button>
@@ -100,7 +103,7 @@ export function MobileNavbar({
                 <SheetClose asChild>
                   <Link
                     href="/signin"
-                    className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                    className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
                   >
                     Sign In
                   </Link>

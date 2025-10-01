@@ -1,12 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "./logo";
 import { MobileNavbar } from "../mobile-navbar";
 import { usePathname } from "next/navigation";
-import { getServerSession } from "@/lib/get-session";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
+import { useState } from "react";
 
 export default function Header() {
+  const [loading, setLoading] = useState(false);
   const path = usePathname();
 
   const isItInBlogSection = path.startsWith("/blog");
@@ -17,14 +20,17 @@ export default function Header() {
 
   // Signing out
   async function handleSignout() {
+    setLoading(true);
+
     const { error } = await authClient.signOut();
     if (error) {
       toast.error(error.message || "Something went wrong.");
     } else {
       toast.success("Signed out successfully");
     }
+
+    setLoading(false);
   }
-  console.log(user);
 
   return (
     <header className="w-full top-0 z-30 sticky">
@@ -39,7 +45,11 @@ export default function Header() {
           {isItInBlogSection || (
             <div>
               {/* Mobile Navbar */}
-              <MobileNavbar user={user} handleSignout={handleSignout} />
+              <MobileNavbar
+                user={user}
+                handleSignout={handleSignout}
+                loading={loading}
+              />
               {/* Desktop sign in links */}
               <ul className="md:flex flex-1 justify-end items-center gap-5 hidden">
                 <li>
@@ -79,7 +89,7 @@ export default function Header() {
                     <li>
                       <Link
                         href="/create-blog"
-                        className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                        className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
                       >
                         Create Blog
                       </Link>
@@ -87,7 +97,8 @@ export default function Header() {
                     <li>
                       <button
                         onClick={handleSignout}
-                        className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                        disabled={loading}
+                        className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
                       >
                         Signout
                       </button>
@@ -97,7 +108,7 @@ export default function Header() {
                   <li>
                     <Link
                       href="/signin"
-                      className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-b from-gray-800 to-gray-800/60 before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                      className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
                     >
                       Sign In
                     </Link>

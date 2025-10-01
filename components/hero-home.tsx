@@ -26,7 +26,7 @@ export default function HeroHome() {
               <div className="sm:max-w-none max-w-xs mx-auto sm:flex sm:justify-center">
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
-                    className="w-full sm:w-auto mb-4 sm:mb-0 group bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] bg-linear-to-t from-[#1b2d45] to-[#2e4056] shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] text-white btn"
+                    className="w-full sm:w-auto mb-4 sm:mb-0 py-[15px] group before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
                     href="#contact-us"
                   >
                     <span className="items-center inline-flex relative">
