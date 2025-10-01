@@ -1,3 +1,4 @@
+import { getBlog } from "@/actions/blog.action";
 import { Blog, blogs } from "@/lib/constants";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
@@ -6,7 +7,7 @@ import Link from "next/link";
 const BlogDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
   const blogId = (await params).id;
 
-  const [blog] = blogs.filter((blog: Blog) => blog.id === Number(blogId));
+  const blog = await getBlog(blogId);
 
   return (
     <section>
@@ -33,7 +34,7 @@ const BlogDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
           <div className="w-full md:w-3/4 max-w-3xl mr-20 flex flex-col justify-start">
             <h2>
-              {!blog && <div className="text-center">Post Not found</div>}
+              {!blog && <div className="text-center">Blog Not found</div>}
               {blog && (
                 <div className="mt-3 pb-1 bg-[length:200%_auto] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-clip-text font-nacelle font-semibold text-transparent text-3xl md:text-4xl animate-[gradient_6s_linear_infinite]">
                   {blog.title}
