@@ -2,9 +2,13 @@ import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 import Link from "next/link";
-import { blogs } from "@/lib/constants";
+import { getAllBlogs } from "@/actions/blog.action";
+import { formatDate } from "@/lib/utils";
+// import { blogs } from "@/lib/constants";
 
-export default function OurBlogs() {
+export default async function OurBlogs() {
+  const blogs = await getAllBlogs();
+
   return (
     <section className="relative" id="blog">
       <div
@@ -45,7 +49,7 @@ export default function OurBlogs() {
             {/* Blogs Grid */}
             <div className="flex flex-col gap-8 md:">
               {/* grid md:grid-cols-2 lg:grid-cols-3"> */}
-              {blogs.map((blog, index) => {
+              {blogs?.map((blog, index) => {
                 return (
                   <Link
                     href={`/blog/${blog.id}`}
@@ -60,7 +64,7 @@ export default function OurBlogs() {
                           <div className="w-full md:w-100 flex justify-center items-center bg-[#3c83f5]/10 group-hover:scale-101 transition-transform">
                             <Image
                               src={blog.imageUrl}
-                              alt={blog.alternateText}
+                              alt={blog.title}
                               height={100}
                               width={200}
                               className="w-full object-cover border border-[#3c83f5]/20 rounded-xl"
@@ -75,7 +79,7 @@ export default function OurBlogs() {
                               {blog.title}
                             </h3>
                             <h2 className="font-regular text-foreground text-md group-hover:text-primary transition-colors">
-                              {blog.date}
+                              {formatDate(blog.createdAt)}
                             </h2>
                           </div>
                           <p className="text-[#a8b8b8] text-md lg:text-lg text-justify leading-relaxed">
