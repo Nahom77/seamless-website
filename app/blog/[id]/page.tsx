@@ -17,7 +17,7 @@ const BlogDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
             width={1400}
             height={720}
             className="lg:max-w-[1000px] object-center object-cover aspect-video mb-5 bg-no-repeat"
-            src={`${blog.imageUrl}`}
+            src={`${blog.imageUrl[0]}`}
             alt={blog.title}
           />
         </div>
@@ -43,38 +43,38 @@ const BlogDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
             </h2>
             {blog && (
               <>
-                <div className="pb-4 flex md:flex-row flex-col justify-between space-y-4 md:space-y-0">
-                  {/* <div className="flex justify-start md:justify-end space-x-2 select-none">
-                    {blog.categories &&
-                      blog.categories.map((category) => (
-                        <Tag key={category.title}>{category.title}</Tag>
-                      ))}
-                  </div> */}
-                </div>
                 <hr className="w-full pb-8 border-zinc-300 dark:border-zinc-700 border-t" />
                 <div className="mb-15 text-[#a8b8b8] text-md lg:text-lg text-justify leading-relaxed">
                   {blog.content}
                 </div>
               </>
             )}
-            {/* <div className="w-full mx-auto mt-8">
+            <div className="w-full mx-auto mt-8">
               <hr className="w-full pb-8 border-zinc-300 dark:border-zinc-700 border-t" />
-              {suggestedPosts && (
+              {blog?.imageUrl && blog?.imageUrl?.length > 1 && (
                 <div className="w-full flex flex-col">
-                  <h3 className="pb-3 font-semibold text-zinc-800 dark:text-zinc-200 text-xl">
-                    Suggested Posts
+                  <h3 className="pb-3 font-semibold text-zinc-400 dark:text-zinc-200 text-xl">
+                    Other Images
                   </h3>
                   <div className="flex md:flex-row flex-col space-x-0 md:space-x-4 space-y-4 md:space-y-0">
-                    {suggestedPosts
-                      // .filter((nextPost) => nextPost?.id !== post?.id)
-                      .slice(0, 2)
-                      .map((post) => {
-                        return <SuggestedPostCard key={post.id} post={post} />;
-                      })}
+                    {blog?.imageUrl.slice(1, 3).map((image, index) => (
+                      <div
+                        key={index}
+                        className="w-full md:w-100 overflow-hidden flex justify-center items-center bg-[#3c83f5]/10 border border-[#3c83f5]/20 rounded-xl group-hover:scale-101 transition-transform"
+                      >
+                        <Image
+                          width={1400}
+                          height={720}
+                          className="w-full object-center object-cover aspect-video bg-no-repeat"
+                          src={`${image}`}
+                          alt={blog.title}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
-            </div> */}
+            </div>
           </div>
         </div>
       </main>

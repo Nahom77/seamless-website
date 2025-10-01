@@ -7,6 +7,10 @@ const nextConfig = {
         hostname: "utfs.io",
         pathname: "/f/**", // allows all paths under /f/
       },
+      {
+        protocol: "https",
+        hostname: "dg3jweh2px.ufs.sh", // uploadthing host
+      },
     ],
   },
 };

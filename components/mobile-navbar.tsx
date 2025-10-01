@@ -99,16 +99,7 @@ export function MobileNavbar({
                 </li>
               </>
             ) : (
-              <li>
-                <SheetClose asChild>
-                  <Link
-                    href="/signin"
-                    className="py-[12px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
-                  >
-                    Sign In
-                  </Link>
-                </SheetClose>
-              </li>
+              <></>
             )}{" "}
           </ul>
         </SheetContent>

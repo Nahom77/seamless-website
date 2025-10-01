@@ -13,11 +13,13 @@ export default function SignIn() {
   const [error, setError] = useState<string | null>(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [images, setImages] = useState<string[]>([]);
   const [showImageUpload, setShowImageUpload] = useState(false);
   const [uploading, setUploading] = useState(false);
 
   const router = useRouter();
+
+  console.log(images);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -27,7 +29,7 @@ export default function SignIn() {
 
     setUploading(true);
     try {
-      const result = await createBlog(title, content, imageUrl);
+      const result = await createBlog(title, content, images);
 
       if (result?.success) {
         setContent("");
@@ -100,15 +102,12 @@ export default function SignIn() {
               </button>
             </div>
 
-            {(showImageUpload || imageUrl) && (
-              <div className="p-4 border rounded-lg">
+            {(showImageUpload || images.length > 0) && (
+              <div className="p-4 flex justify-center items-center gap-4 border rounded-lg">
                 <ImageUpload
                   endpoint="postImage"
-                  value={imageUrl}
-                  onChange={(url) => {
-                    setImageUrl(url);
-                    if (!url) setShowImageUpload(false);
-                  }}
+                  value={images}
+                  onChange={setImages}
                 />
               </div>
             )}
@@ -151,7 +150,7 @@ export default function SignIn() {
             <div className="mt-6 space-y-5">
               <button
                 type="submit"
-                disabled={uploading || !imageUrl}
+                disabled={uploading || !images}
                 className="w-full bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
               >
                 Upload

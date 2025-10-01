@@ -62,7 +62,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="#blog"
+                    href="/blogs"
                     className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] before:border before:border-transparent before:rounded-[inherit] text-gray-300 before:pointer-events-none btn-sm before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
                   >
                     Blog
@@ -105,14 +105,7 @@ export default function Header() {
                     </li>
                   </>
                 ) : (
-                  <li>
-                    <Link
-                      href="/signin"
-                      className="py-[5px] before:absolute relative before:inset-0 bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
-                    >
-                      Sign In
-                    </Link>
-                  </li>
+                  <></>
                 )}
               </ul>
             </div>

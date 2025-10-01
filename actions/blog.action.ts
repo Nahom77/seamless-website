@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 export async function createBlog(
   title: string,
   content: string,
-  imageUrl: string
+  imageUrl: string[]
 ) {
   try {
     const blog = await prisma.blog.create({

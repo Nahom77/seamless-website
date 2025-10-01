@@ -64,7 +64,7 @@ export default async function OurBlogs() {
                         <div className="self-center relative">
                           <div className="w-full md:w-100 overflow-hidden flex justify-center items-center bg-[#3c83f5]/10 border border-[#3c83f5]/20 rounded-xl group-hover:scale-101 transition-transform">
                             <Image
-                              src={blog.imageUrl}
+                              src={blog.imageUrl[0]}
                               alt={blog.title}
                               height={100}
                               width={200}
