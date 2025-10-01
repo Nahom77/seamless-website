@@ -14,6 +14,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Blog {
+  id String @id @default(cuid())
+  imageUrl String
+  title String
+  content String
+  createdAt DateTime @default(now())
+}
+
 model User {
   id            String    @id
   name          String
