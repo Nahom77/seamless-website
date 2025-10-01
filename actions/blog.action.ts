@@ -37,3 +37,17 @@ export async function getAllBlogs() {
     console.log("Error in getting Blogs", error);
   }
 }
+
+export async function getBlog(id: string) {
+  try {
+    const blog = await prisma.blog.findUnique({
+      where: {
+        id: id,
+      },
+    });
+
+    return blog;
+  } catch (error) {
+    console.log("Error in fetching a blog", error);
+  }
+}

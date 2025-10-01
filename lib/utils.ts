@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(date: Date) {
-  return String(new Date(date).getFullYear);
+  return String(new Date(date).toString().slice(4, 15));
 }
