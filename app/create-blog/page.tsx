@@ -78,7 +78,10 @@ export default function SignIn() {
           )}
 
           {/* Contact form */}
-          <form onSubmit={handleSubmit} className="max-w-[400px] mx-auto">
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-[400px] md:max-w-[650px] mx-auto"
+          >
             <div className="mb-4 space-y-5">
               <label
                 className="mb-1 block font-medium text-indigo-200/65 text-sm"
@@ -87,6 +90,7 @@ export default function SignIn() {
                 Image
               </label>
               <button
+                type="button"
                 className="w-full flex justify-center items-center gap-4 text-muted-foreground hover:text-primary text-lg cursor-pointer form-input"
                 onClick={() => setShowImageUpload(!showImageUpload)}
                 disabled={uploading}
@@ -147,7 +151,7 @@ export default function SignIn() {
             <div className="mt-6 space-y-5">
               <button
                 type="submit"
-                disabled={uploading}
+                disabled={uploading || !imageUrl}
                 className="w-full bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
               >
                 Upload

@@ -50,7 +50,7 @@ export default async function OurBlogs() {
             {/* Blogs Grid */}
             <div className="flex flex-col gap-8 md:">
               {/* grid md:grid-cols-2 lg:grid-cols-3"> */}
-              {blogs?.slice(0, 3)?.map((blog, index) => {
+              {blogs?.map((blog, index) => {
                 return (
                   <Link
                     href={`/blog/${blog.id}`}
@@ -100,15 +100,6 @@ export default async function OurBlogs() {
                   </Link>
                 );
               })}
-            </div>
-
-            {/* View more button */}
-            <div className="mt-10 justify-self-center text-center">
-              <Link href={"/blogs"}>
-                <button className="px-8 py-3 flex justify-center items-center gap-2 hover:shadow-lg rounded-lg font-semibold text-primary-foreground hover:scale-105 transition-all hero-gradient">
-                  <ArrowDownNarrowWideIcon className="size-4" /> View more
-                </button>
-              </Link>
             </div>
           </div>
         </div>
