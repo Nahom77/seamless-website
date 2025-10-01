@@ -6,37 +6,38 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { ImageIcon } from "lucide-react";
+import { createBlog } from "@/actions/blog.action";
 
 export default function SignIn() {
   const [error, setError] = useState<string | null>(null);
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [password, setPassword] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   const router = useRouter();
 
-  async function handleSignIn(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
 
-    // Signing up user
-    const { error } = await authClient.signUp.email({
-      email, // user email address
-      password, // user password -> min 8 characters by default
-      name, // user display name
-    });
+    if (!content.trim() && !title.trim()) return;
 
-    if (error) {
-      setError(error.message || "Something went wrong");
-    } else {
-      toast.success("Signed up successfully.");
-      setName("");
-      setEmail("");
-      setPassword("");
-      router.push("/");
+    setUploading(true);
+    try {
+      const result = await createBlog(title, content);
+
+      if (result?.success) {
+        setContent("");
+        setTitle("");
+        toast.success("Blog created successfully.");
+        router.push("/");
+      }
+    } catch (error) {
+      toast.error("Failed to create Blog");
+    } finally {
+      setUploading(false);
     }
-
-    console.log("hello");
   }
 
   return (
@@ -75,7 +76,7 @@ export default function SignIn() {
           )}
 
           {/* Contact form */}
-          <form onSubmit={handleSignIn} className="max-w-[400px] mx-auto">
+          <form onSubmit={handleSubmit} className="max-w-[400px] mx-auto">
             <div className="mb-4 space-y-5">
               <label
                 className="mb-1 block font-medium text-indigo-200/65 text-sm"
@@ -96,17 +97,17 @@ export default function SignIn() {
               <div>
                 <label
                   className="mb-1 block font-medium text-indigo-200/65 text-sm"
-                  htmlFor="email"
+                  htmlFor="title"
                 >
                   Title
                 </label>
                 <input
-                  id="name"
+                  id="title"
                   className="w-full form-input"
                   placeholder="Blog title"
                   required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
 
@@ -122,14 +123,15 @@ export default function SignIn() {
                   className="w-full h-[350px] form-input"
                   placeholder="Blog content"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
                 />
               </div>
             </div>
             <div className="mt-6 space-y-5">
               <button
                 type="submit"
+                disabled={uploading}
                 className="w-full bg-[bottom] bg-[length:100%_100%] hover:bg-[length:100%_150%] disabled:opacity-50 shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:shadow-lg text-primary-foreground cursor-pointer hero-gradient btn"
               >
                 Upload

@@ -16,7 +16,7 @@ datasource db {
 
 model Blog {
   id String @id @default(cuid())
-  imageUrl String
+  // imageUrl String
   title String
   content String
   createdAt DateTime @default(now())
