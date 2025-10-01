@@ -7,12 +7,14 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { ImageIcon } from "lucide-react";
 import { createBlog } from "@/actions/blog.action";
+import ImageUpload from "@/components/image-upload";
 
 export default function SignIn() {
   const [error, setError] = useState<string | null>(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [password, setPassword] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [showImageUpload, setShowImageUpload] = useState(false);
   const [uploading, setUploading] = useState(false);
 
   const router = useRouter();
@@ -25,7 +27,7 @@ export default function SignIn() {
 
     setUploading(true);
     try {
-      const result = await createBlog(title, content);
+      const result = await createBlog(title, content, imageUrl);
 
       if (result?.success) {
         setContent("");
@@ -86,13 +88,27 @@ export default function SignIn() {
               </label>
               <button
                 className="w-full flex justify-center items-center gap-4 text-muted-foreground hover:text-primary text-lg cursor-pointer form-input"
-                // onClick={() => setShowImageUpload(!showImageUpload)}
-                // disabled={isPosting}
+                onClick={() => setShowImageUpload(!showImageUpload)}
+                disabled={uploading}
               >
                 <ImageIcon className="size-8 mr-2" />
                 Upload Image
               </button>
             </div>
+
+            {(showImageUpload || imageUrl) && (
+              <div className="p-4 border rounded-lg">
+                <ImageUpload
+                  endpoint="postImage"
+                  value={imageUrl}
+                  onChange={(url) => {
+                    setImageUrl(url);
+                    if (!url) setShowImageUpload(false);
+                  }}
+                />
+              </div>
+            )}
+
             <div className="space-y-5">
               <div>
                 <label
@@ -120,7 +136,7 @@ export default function SignIn() {
                 </label>
                 <textarea
                   id="content"
-                  className="w-full h-[350px] form-input"
+                  className="w-full h-[300px] form-input"
                   placeholder="Blog content"
                   required
                   value={content}
