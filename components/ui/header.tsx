@@ -6,7 +6,8 @@ import { MobileNavbar } from "../mobile-navbar";
 import { usePathname } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useUserStore } from "@/stores/user.store";
 
 export default function Header() {
   const [loading, setLoading] = useState(false);
@@ -14,19 +15,31 @@ export default function Header() {
 
   const isItInBlogSection = path.startsWith("/blog");
 
-  // Checking if the user is logged
+  // Zustand
+  const { setUser, clearUser, user } = useUserStore();
+
   const { data: session } = authClient.useSession();
-  const user = session?.user;
+
+  // Sync session user with Zustand
+  useEffect(() => {
+    if (session?.user) {
+      setUser(session.user);
+    } else {
+      clearUser();
+    }
+  }, [session, setUser, clearUser]);
 
   // Signing out
   async function handleSignout() {
     setLoading(true);
 
     const { error } = await authClient.signOut();
+
     if (error) {
       toast.error(error.message || "Something went wrong.");
     } else {
       toast.success("Signed out successfully");
+      clearUser();
     }
 
     setLoading(false);
