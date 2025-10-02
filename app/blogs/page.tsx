@@ -4,7 +4,8 @@ import BlurredShape from "@/public/images/blurred-shape.svg";
 import Link from "next/link";
 import { getAllBlogs } from "@/actions/blog.action";
 import { formatDate } from "@/lib/utils";
-import { ArrowDownNarrowWideIcon } from "lucide-react";
+import { ArrowDownNarrowWideIcon, Trash2 } from "lucide-react";
+import DeleteButton from "@/components/delete-button";
 // import { blogs } from "@/lib/constants";
 
 export default async function OurBlogs() {
@@ -52,8 +53,7 @@ export default async function OurBlogs() {
               {/* grid md:grid-cols-2 lg:grid-cols-3"> */}
               {blogs?.map((blog, index) => {
                 return (
-                  <Link
-                    href={`/blog/${blog.id}`}
+                  <div
                     key={blog.id}
                     className="p-6 group bg-slate-800/30 hover:shadow-[var(--shadow-medium),var(--shadow-glow)] border border-[#1e2127] hover:border-primary/50 rounded-xl transition-all hover:-translate-y-0.5 animate-fade-in duration-300"
                     style={{ animationDelay: `${index * 0.1}s` }}
@@ -61,7 +61,10 @@ export default async function OurBlogs() {
                     <div className="space-y-4">
                       <div className="flex lg:flex-row flex-col gap-5">
                         {/* imageUrl */}
-                        <div className="self-center relative">
+                        <Link
+                          href={`/blog/${blog.id}`}
+                          className="self-center relative"
+                        >
                           <div className="w-full md:w-100 overflow-hidden flex justify-center items-center bg-[#3c83f5]/10 border border-[#3c83f5]/20 rounded-xl group-hover:scale-101 transition-transform">
                             <Image
                               src={blog.imageUrl[0]}
@@ -71,7 +74,7 @@ export default async function OurBlogs() {
                               className="w-full object-center object-cover aspect-video bg-no-repeat"
                             />
                           </div>
-                        </div>
+                        </Link>
 
                         {/* Content */}
                         <div className="w-full space-y-3">
@@ -87,17 +90,21 @@ export default async function OurBlogs() {
                             {blog.content.slice(0, 400) + "..."}
                           </p>
 
-                          {/* Learn More Link */}
+                          {/* Learn More Link and Delete icon */}
 
-                          <div className="pt-2">
-                            <button className="font-medium text-[#1d4ed8] hover:text-[#9ca2fb] text-sm animated-underline transition-transform group-hover:translate-x-0.5 cursor-pointer">
+                          <div className="pt-2 flex justify-between items-center">
+                            <Link
+                              href={`/blog/${blog.id}`}
+                              className="font-medium text-[#1d4ed8] hover:text-[#9ca2fb] text-sm animated-underline transition-transform group-hover:translate-x-0.5 cursor-pointer"
+                            >
                               Read more →
-                            </button>
+                            </Link>
+                            <DeleteButton blogId={blog.id} />
                           </div>
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 );
               })}
             </div>

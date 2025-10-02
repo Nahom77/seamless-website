@@ -51,3 +51,19 @@ export async function getBlog(id: string) {
     console.log("Error in fetching a blog", error);
   }
 }
+
+export async function deleteBlog(id: string) {
+  try {
+    const deletedBlog = await prisma.blog.delete({
+      where: {
+        id: id, // the ID of the record you want to delete
+      },
+    });
+
+    revalidatePath("/blogs");
+
+    return { success: true };
+  } catch (error) {
+    console.log("Error in Deleting blog", error);
+  }
+}
