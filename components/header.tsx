@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "./ui/logo";
+import Logo from "./logo";
 import { MobileNavbar } from "./mobile-navbar";
 import { usePathname } from "next/navigation";
 import { authClient } from "@/lib/auth-client";

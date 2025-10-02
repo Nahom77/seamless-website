@@ -20,7 +20,7 @@ export default function SignIn() {
     router.push("/");
   }
 
-  async function handleSignIn(e: React.FormEvent) {
+  async function handleSignUp(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
 
@@ -80,7 +80,7 @@ export default function SignIn() {
           )}
 
           {/* Contact form */}
-          <form onSubmit={handleSignIn} className="max-w-[400px] mx-auto">
+          <form onSubmit={handleSignUp} className="max-w-[400px] mx-auto">
             <div className="space-y-5">
               <div>
                 <label
