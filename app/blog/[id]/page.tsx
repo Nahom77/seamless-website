@@ -26,7 +26,7 @@ const BlogDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
         <div className="w-full mx-auto px-4 flex md:flex-row flex-col justify-center items-start">
           <div className="mt-4 md:pr-20 pb-4 md:pb-0 flex justify-start md:justify-center">
             <Link
-              href="/"
+              href="/blogs"
               className="p-2 bg-white dark:bg-zinc-950 shadow-md border border-zinc-100 dark:border-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -49,12 +49,12 @@ const BlogDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
                 </div>
               </>
             )}
-            <div className="w-full mx-auto mt-8">
+            <div className="w-full mx-auto mt-8 mb-6">
               <hr className="w-full pb-8 border-zinc-300 dark:border-zinc-700 border-t" />
               {blog?.imageUrl && blog?.imageUrl?.length > 1 && (
                 <div className="w-full flex flex-col">
                   <h3 className="pb-3 font-semibold text-zinc-400 dark:text-zinc-200 text-xl">
-                    Other Images
+                    {/* Images */}
                   </h3>
                   <div className="flex md:flex-row flex-col space-x-0 md:space-x-4 space-y-4 md:space-y-0">
                     {blog?.imageUrl.slice(1, 3).map((image, index) => (

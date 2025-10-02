@@ -68,13 +68,13 @@ export default async function OurBlogs() {
                               alt={blog.title}
                               height={100}
                               width={200}
-                              className="w-full object-cover"
+                              className="w-full object-center object-cover aspect-video bg-no-repeat"
                             />
                           </div>
                         </div>
 
                         {/* Content */}
-                        <div className="space-y-3">
+                        <div className="w-full space-y-3">
                           <div className="flex md:flex-row flex-col justify-between">
                             <h3 className="font-semibold text-foreground group-hover:text-primary text-xl transition-colors">
                               {blog.title}

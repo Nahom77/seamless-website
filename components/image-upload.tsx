@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { UploadDropzone } from "../lib/uploadthing";
 import { XIcon } from "lucide-react";
 
@@ -44,6 +45,7 @@ function ImageUpload({ endpoint, onChange, value }: ImageUploadProps) {
       }}
       onUploadError={(error: Error) => {
         console.error(error);
+        toast.error(`${error.message}` || "Something went wrong");
       }}
     />
   );
