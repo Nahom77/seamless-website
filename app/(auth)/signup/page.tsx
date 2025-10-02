@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useUserStore } from "@/stores/user.store";
 
 export default function SignIn() {
   const [error, setError] = useState<string | null>(null);
@@ -13,6 +13,12 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
+
+  // Checking if the user is an admin and navigates to home page
+  const { user } = useUserStore();
+  if (user?.role !== "admin") {
+    router.push("/");
+  }
 
   async function handleSignIn(e: React.FormEvent) {
     e.preventDefault();

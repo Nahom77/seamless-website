@@ -6,7 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import Footer from "@/components/ui/footer";
-import Header from "@/components/ui/header";
+import Header from "@/components/header";
 
 export default function DefaultLayout({
   children,

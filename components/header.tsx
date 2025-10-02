@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "./logo";
-import { MobileNavbar } from "../mobile-navbar";
+import Logo from "./ui/logo";
+import { MobileNavbar } from "./mobile-navbar";
 import { usePathname } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";

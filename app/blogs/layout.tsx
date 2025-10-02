@@ -1,4 +1,4 @@
-import Header from "@/components/ui/header";
+import Header from "@/components/header";
 
 const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (

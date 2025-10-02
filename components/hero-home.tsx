@@ -48,17 +48,6 @@ export default function HeroHome() {
               </div>
             </div>
           </div>
-
-          {/* Illustration
-          <div className="md:flex justify-center items-center hidden">
-            <Image
-              src={digitalHealth}
-              alt="Digital health Illustration"
-              className=""
-              width={800}
-              height={1600}
-            />
-          </div> */}
         </div>
       </div>
     </section>
